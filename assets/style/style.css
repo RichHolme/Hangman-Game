@@ -1,0 +1,79 @@
+body{
+	background-image: url(../images/background.jpg);
+}
+
+#hangman{
+	font-family: 'Ewert', cursive;
+	/*font-family: 'Sancreek', cursive;*/
+	font-size: 85px;
+}
+
+div > h3{
+	font-size: 25px;
+	padding-top: 5px;
+}
+
+div > h1{
+	font-size: 45px;
+}
+
+div > h2{
+	font-size: 40px;
+}
+
+.row{
+	text-align: center;
+}
+
+#info{
+	font-size: 25px;
+ }
+
+#incorrect,
+#hint,
+#info,
+span{
+	font-size: 25px;
+}
+
+div > h1,
+div > h2,
+div > h3,
+#incorrect,
+#info,
+#hint,
+span,
+#play{
+	font-family: 'New+Rocker', cursive;
+}
+
+#playAgain{
+	margin-top: 20px;
+	font-size: 25px;
+	/*border: solid;
+	border-width: 2px;
+	border-color: #FAF7F5;*/
+}
+
+#play{
+	font-size: 25px;
+	padding-left: 15px;
+	padding-right: 15px;
+}
+
+#winner{
+	margin-top: 100px;
+}
+
+#loser{
+	margin-top: 100px;
+}
+
+#wins{
+	font-family: 'New+Rocker', cursive;
+	font-size: 45px;
+}
+
+.btn-primary{
+	background-color: #AA7243 !important;
+}

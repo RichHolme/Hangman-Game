@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Hangman Game</title>
+
+	<link rel="stylesheet" type="text/css" href="assets/style/reset.css">
+	<link rel="stylesheet" type="text/css" href="assets/style/style.css">
+	<!-- font families -->
+	<link href="https://fonts.googleapis.com/css?family=Ewert|Sancreek|Rye" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css?family=Gorditas|New+Rocker|Smokum" rel="stylesheet">
+	<!-- JQuery -->
+    <script src="https://code.jquery.com/jquery.js"></script>
+	<!-- Bootstrap File -->
+  	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+  	<!-- javascript -->
+  	<script type="text/javascript" src="javascript/game.js"></script>
+
+  	
+
+</head>
+	
+<body>
+	<div id = "body-container" class = "container-fluid">
+		<div class ="row">
+			<h1 id="hangman">Hangman of the hollywood west!</h1>
+		</div>
+		
+		<div id="winner" class="row">
+			<h1>Good Job! You won all 4 rounds</h1>
+		</div>
+
+		<div id="loser" class="row">
+			<h1>Good Job! You won <span id="wins"></span>  out of 4 rounds</h1>
+		</div>
+
+		<div class="row instructions">
+			<h1>Instructions:</h1>
+			<h3>To begin press the play button.</h3>
+			<h3>There are four rounds in total.</h3>
+			<h3>You will be given a hint for each name.</h3>
+			<h3>You have 6 misses per word.</h3>
+			<h3>Win or loose if you want to play
+			another round press the play button again.</h3>
+		</div>
+
+		<div class="hides">
+			<div class ="row">
+		
+				<h2>Game Status</h2>
+				<div id="info" class="row">
+				
+				</div>
+			</div>
+		
+			<div class="row">
+				<h2>Hint</h2>
+				<div id="hint" class="row">
+					
+				</div>
+			</div>
+
+			<div class = "row">
+				<h2>Correct Letters</h2>
+				
+				<div id="correct" class="row">
+				
+					<span id="1"></span><span id="2"></span><span id ="3"></span><span id="4"></span><span id="5"></span><span id="6"></span><span id="7"></span><span id="8"></span><span id="9"></span><span id="10"></span><span id="11"></span><span id="12"></span><span id="13"></span><span id="14"></span>
+				
+				</div>
+				
+			</div>
+
+			<div class="row">
+				<h2>Incorrect Letters</h2>
+				<div id="incorrect" class="row">
+				
+				</div>
+			</div>
+
+		</div>
+
+		<div class="row">
+			
+				<button id="playAgain" class="btn btn-primary"><span id="play">Play</span></button>
+			
+		</div>
+
+	</div>
+	
+</body>
+</html>
