@@ -22,6 +22,7 @@ function status(){
 		$("#playAgain").show();
 		reset();
 		wins++;
+		$("#winCount").text(wins);
 		rounds++;
 		document.onkeyup = null;
 		total++;
@@ -32,7 +33,8 @@ function status(){
 		$("#playAgain").text("Next Round");
 		$("#playAgain").show();
 		reset();
-		losses++
+		losses++;
+		$("#lossCount").text(losses);
 		rounds++;
 		document.onkeyup = null;
 		total++;
@@ -221,6 +223,8 @@ function hint(){
 }
 
 function display(){
+	$("#winCount").text(wins);
+	$("#lossCount").text(losses);
 	if(rounds === 0){
 		$("#1").text("_ ")
 		$("#2").text("_ ")
@@ -233,6 +237,7 @@ function display(){
 		$("#9").text("_ ")
 		$("#10").text("_ ")
 	}else if(rounds === 1){
+		$("#actorPics").attr("src","assets/images/elliot.jpg");
 		$("#1").text("_ ")
 		$("#2").text("_ ")
 		$("#3").text("_ ")
@@ -244,6 +249,7 @@ function display(){
 		$("#9").text("_ ")
 		$("#10").text("_ ")
 	}if(rounds === 2){
+		$("#actorPics").attr("src","assets/images/connors.jpg");
 		$("#1").text("_ ")
 		$("#2").text("_ ")
 		$("#3").text("_ ")
@@ -258,6 +264,7 @@ function display(){
 		$("#12").text("_ ")
 		$("#13").text("_ ")
 	}if(rounds === 3){
+		$("#actorPics").attr("src","assets/images/eastwood.jpg");
 		$("#1").text("_ ")
 		$("#2").text("_ ")
 		$("#3").text("_ ")
