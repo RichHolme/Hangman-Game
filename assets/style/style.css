@@ -26,22 +26,27 @@ div > h1{
 }
 
 div > h2{
-	font-size: 40px;
+	font-size: 4vh;
 }
 
 .row{
 	text-align: center;
 }
 
-#info{
-	font-size: 25px;
+/*#info{
+	font-size: 3vh;
+ }*/
+
+ #hint{
+ 	padding-right: 2vw;
+ 	padding-left: 2vw;
  }
 
 #incorrect,
 #hint,
 #info,
 span{
-	font-size: 25px;
+	font-size: 3vh;
 }
 
 div > h1,
