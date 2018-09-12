@@ -41,18 +41,18 @@ div > h2{
 }*/
 
  #gameStats{
- 	float: right;
- 	width: 15vw;
+ 	float: left;
+ 	/*width: 15vw;*/
  	height: 25vh;
- 	margin-right: 25vw;
+ 	/*margin-left: 5vw;*/
  	border: 1px solid black;
  }
 
  #pic{
- 	float: left;
- 	width: 15vw;
+ 	/*float: left;*/
+ 	/*width: 15vw;*/
  	height: 25vh;
- 	margin-left: 25vw;
+ 	/*margin-left: -5vw;*/
  	border: 1px solid black;
  }
 
@@ -129,8 +129,17 @@ span,
 	div > p {
 		font-size: 2vh;
 	}
+	
+	div > h2 {
+		font-size: 3vh;
 
-	#playAgain{
+	}
+
+	#playAgain,
+	#hint,
+	#correct,
+	#incorrect,
+	#info{
 		font-size: 2.5vh;
 	}
 
