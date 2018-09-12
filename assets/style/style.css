@@ -11,10 +11,14 @@ body{
 	/*text-shadow: 1px 1px 1px #000;*/
 }
 
-div > h3{
+/*div > h3{
 	font-size: 3vh;
 	padding-top: 5px;
-	/*text-shadow: 1px 1px 1px #000;*/
+	text-shadow: 1px 1px 1px #000;
+}*/
+
+div > p {
+	font-size: 3vh;
 }
 
 div > h1{
@@ -43,6 +47,7 @@ span{
 div > h1,
 div > h2,
 div > h3,
+div > p,
 #incorrect,
 #info,
 #hint,
@@ -54,9 +59,9 @@ span,
 #playAgain{
 	margin-top: 20px;
 	font-size: 3vh;
-	/*border: solid;
-	border-width: 2px;
-	border-color: #FAF7F5;*/
+	/*border: solid;*/
+	/*border-width: 2px;*/
+	border-color: #FAF7F5;
 }
 
 #playAgain:hover {
@@ -91,6 +96,22 @@ span,
 	#hangman{
 		font-size: 7vh;
 	
+	}
+
+	div > h1{
+		font-size: 3vh;
+	}
+
+	div > p {
+		font-size: 2vh;
+	}
+
+	#playAgain{
+		font-size: 2.5vh;
+	}
+
+	#play{
+		font-size: 2.5vh;
 	}
 }
 
