@@ -36,6 +36,25 @@ div > h2{
 /*#info{
 	font-size: 3vh;
  }*/
+/*#gameStats{
+	text-align: center;
+}*/
+
+ #gameStats{
+ 	float: right;
+ 	width: 15vw;
+ 	height: 25vh;
+ 	margin-right: 25vw;
+ 	border: 1px solid black;
+ }
+
+ #pic{
+ 	float: left;
+ 	width: 15vw;
+ 	height: 25vh;
+ 	margin-left: 25vw;
+ 	border: 1px solid black;
+ }
 
  #hint{
  	padding-right: 2vw;

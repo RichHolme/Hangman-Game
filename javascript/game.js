@@ -29,6 +29,8 @@ function status(){
 		
 	}else if(missedArr.length === 6){
 		$("#info").text("You lost. No tires left.");
+		$("#playAgain").text("Next Round");
+		$("#playAgain").show();
 		reset();
 		losses++
 		rounds++;
@@ -69,7 +71,7 @@ function winLoose(){
 }
 
 function include(letter){
-
+	// $("#gameStats").show();
 	if(missedArr.includes(letter) || correctLetters.includes(letter)){
 		$("#info").text("Already guessed that one.");
 	}else if(nameArr[rounds].includes(letter)){
@@ -84,6 +86,7 @@ function include(letter){
 		$("#info").text("Its not there.");
 	 	$("#incorrect").append(letter + " ");
 	 	missedArr.push(letter);
+	 	$("#missedL").show();
 	}
 }
 
@@ -289,6 +292,8 @@ $(document).ready(function() {
         $("#incorrect").empty();
         $("#info").empty();
         $(".hides").show();
+        $("#missedL").hide();
+        // $("#gameStats").hide();
         $("#play").text("Play");
         $(".instructions").hide();
         $("#playAgain").hide();
