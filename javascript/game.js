@@ -18,6 +18,8 @@ function status(){
 	
 	if(correctLetters.length === nameArr[rounds].length){
 		$("#info").text("You win!");
+		$("#playAgain").text("Next Round");
+		$("#playAgain").show();
 		reset();
 		wins++;
 		rounds++;
@@ -289,6 +291,7 @@ $(document).ready(function() {
         $(".hides").show();
         $("#play").text("Play");
         $(".instructions").hide();
+        $("#playAgain").hide();
         display();
         hint();
         key();
