@@ -1,20 +1,24 @@
 body{
 	background-image: url(../images/background.jpg);
+	overflow: hidden;
 }
 
 #hangman{
 	font-family: 'Ewert', cursive;
 	/*font-family: 'Sancreek', cursive;*/
-	font-size: 85px;
+	font-size: 9vh;
+	/*text-shadow: 0px 0px 15px -3px #000000;*/
+	/*text-shadow: 1px 1px 1px #000;*/
 }
 
 div > h3{
-	font-size: 25px;
+	font-size: 3vh;
 	padding-top: 5px;
+	/*text-shadow: 1px 1px 1px #000;*/
 }
 
 div > h1{
-	font-size: 45px;
+	font-size: 4.5vh;
 }
 
 div > h2{
@@ -49,16 +53,20 @@ span,
 
 #playAgain{
 	margin-top: 20px;
-	font-size: 25px;
+	font-size: 3vh;
 	/*border: solid;
 	border-width: 2px;
 	border-color: #FAF7F5;*/
 }
 
+#playAgain:hover {
+  box-shadow: 0 0 11px rgba(33,33,33,.9); 
+}
+
 #play{
-	font-size: 25px;
-	padding-left: 15px;
-	padding-right: 15px;
+	font-size: 3vh;
+	padding-left: 2vw;
+	padding-right: 2vw;
 }
 
 #winner{
@@ -76,4 +84,20 @@ span,
 
 .btn-primary{
 	background-color: #AA7243 !important;
+}
+
+@media only screen and (max-width: 1024px){	
+	
+	#hangman{
+		font-size: 7vh;
+	
+	}
+}
+
+@media only screen and (max-width: 376px){	
+	
+	#hangman{
+		font-size: 6vh;
+	
+	}
 }
