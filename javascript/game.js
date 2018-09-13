@@ -16,10 +16,10 @@ function reset(){
 }
 
 function status(){
-	console.log(correctLetters);
-	console.log("im here in status");
+	// console.log(correctLetters);
+	// console.log("im here in status");
 	if(correctLetters.length === nameArr[rounds].length){
-		console.log("letter pushed " + correctLetters);
+		// console.log("letter pushed " + correctLetters);
 		$("#info").text("You win!");
 		$("#playAgain").text("Next Round");
 		$("#playAgain").show();
@@ -83,14 +83,14 @@ function include(letter){
 	 	$("#info").text("Its there.");
 	 	roundName(rounds, letter);
 	 	// correctLetters.push(letter);
-	 	console.log("soon to be pushed");
+	 	// console.log("soon to be pushed");
 	 	if(nameArr[rounds].toLowerCase().split(letter).length-1 >= 1){
-	 		console.log("im here about to be pushed");
+	 		// console.log("im here about to be pushed");
 	 		// console.log(nameArr[rounds].split(letter));
 	 		// console.log(nameArr[rounds].split(letter).length-1);
 	 		// console.log("im here");
 	 		for (var i = 0; i < nameArr[rounds].toLowerCase().split(letter).length-1; i++) {
-	 			console.log("im here being pushed");
+	 			// console.log("im here being pushed");
 	 			correctLetters.push(letter);
 	 		}
 	 	}
@@ -104,114 +104,88 @@ function include(letter){
 
 function roundName(rounds, letter){
 	if(rounds === 0){
-		john(letter);
+		names(letter);
 	}else if(rounds === 1){
-		sam(letter);
+		names(letter);
 	}else if(rounds === 2){
-		chuck(letter);
+		names(letter);
 	}else if(rounds === 3){
-		clint(letter);
+		names(letter);
 	}
 }
 
-function john(letter){
-	if(letter === "j"){
-		$("#1").text("J");
-	}else if(letter === "o"){
-		$("#2").text(letter);
-	}else if(letter === "h"){
-		$("#3").text(letter);
-	}else if(letter === "n"){
-		$("#4").text(letter);
-		$("#9").text(letter);
-	}else if(letter === "w"){
-		$("#5").text(" ");
-		$("#6").text("W");
-	}else if(letter === "a"){
-		$("#7").text(letter);
-	}else if(letter === "y"){
-		$("#8").text(letter);
-	}else if(letter === "e"){
-		$("#10").text(letter);
-	}
+function names(userKey){
+	// creates an array of the current name
+	let letters = Array.from(nameArr[rounds]);
+	// holds the index of the beginning of the last name
+	let plusTwo = 0;
+	// holds the first letter of the last name
+	let capitalLetter = '';
+
+	letters.forEach(function(letter,index){
+		// finds first letter of last name and stores its index and value
+		if(letter.toUpperCase() === letter){
+			plusTwo = letters.indexOf(letter);
+			capitalLetter = letter;
+		}
+	})
+
+	// create an array of the first name
+	lastnameArr = letters.slice(plusTwo,letters.length);
+	// create an array of the last name
+	firstnameArr = letters.slice(0, plusTwo);
+
+	// this holds the nuber of times a key is in the array
+	let firstArrHolder = 0;
+	let lastArrHolder = 0;
+
+	// take the first name array and create a string
+	fNameCheckString = firstnameArr.toString();
+	// count the number of times the userKey is in the array
+	fNumDuplicates = fNameCheckString.split(userKey).length-1;
+
+	// take the last name array and create a string
+	lNameCheckString = lastnameArr.toString();
+	// count the number of times userKey is in the array
+	lNumDuplicates = lNameCheckString.split(userKey).length-1;
+
+	console.log(fNumDuplicates);
+
+	letters.forEach(function(letter,index){
+
+		// increments index for span id
+		index++;
+		
+		// when the userKey matches the loop key and it is in the first name array and it has not been printed more times that it occures in the array
+		// print to screen in correct span
+		if(userKey == letter && firstnameArr.includes(userKey) && firstArrHolder < fNumDuplicates){
+			// prints to screen
+			$("#" + index).text(userKey);
+			// increments hold count so we know how many time it had been printed
+			firstArrHolder++;
+			// console.log("adding letter to first name");
+		}
+
+		// when the userKey matches the loop key and it is in the first name array and it has not been printed more times that it occures in the array
+		// print to screen in correct span
+		else if(userKey == letter && lastnameArr.includes(userKey) && lastArrHolder < lNumDuplicates && firstArrHolder <= fNumDuplicates){
+			// add an extra space to index to account for the - in between names
+			let spaceIndex = index + 1;
+			// prints to screen
+			$("#" + spaceIndex).text(userKey);
+			// increments hold count so we know how many time it had been printed
+			lastArrHolder++;
+			// console.log("adding letter to last name");
+		}
+		
+		else if (userKey.toUpperCase() == letter){
+			console.log("upper case last name");
+			let spaceIndex = index + 1;
+			$("#" + spaceIndex).text(userKey.toUpperCase());
+		}
+	})
 }
 
-function sam(letter){
-	if(letter === "s"){
-		$("#1").text("S");
-	}else if(letter === "a"){
-		$("#2").text(letter);
-	}else if(letter === "m"){
-		$("#3").text(letter);
-	}else if(letter === "e"){
-		$("#4").text(" ");
-		$("#5").text("E");
-	}else if(letter === "l"){
-		$("#6").text(letter);
-		$("#7").text(letter);
-	}else if(letter === "i"){
-		$("#8").text(letter);
-	}else if(letter === "o"){
-		$("#9").text(letter);
-	}else if(letter === "t"){
-		$("#10").text(letter);
-	}
-}
-
-function chuck(letter){
-	if(letter === "c"){
-		$("#1").text("C");
-		$("#4").text(letter);
-		$("#7").text("C");
-	}else if(letter === "h"){
-		$("#2").text(letter);
-	}else if(letter === "u"){
-		$("#3").text(letter);
-	}else if(letter === "k"){
-		$("#5").text(letter);
-		$("#6").text(" ");
-	}else if(letter === "o"){
-		$("#8").text(letter);
-	}else if(letter === "n"){
-		$("#9").text(letter);
-		$("#10").text(letter);
-	}else if(letter === "e"){
-		$("#11").text(letter);
-	}else if(letter === "r"){
-		$("#12").text(letter);
-	}else if(letter === "s"){
-		$("#13").text(letter);
-	}
-}
-
-function clint(letter){
-	if(letter === "c"){
-		$("#1").text("C");
-	}else if(letter === "l"){
-		$("#2").text(letter);
-	}else if(letter === "i"){
-		$("#3").text(letter);
-	}else if(letter === "n"){
-		$("#4").text(letter);
-	}else if(letter === "t"){
-		$("#5").text(letter);
-		$("#10").text(letter);
-	}else if(letter === "e"){
-		$("#6").text(" ");
-		$("#7").text("E");
-	}else if(letter === "a"){
-		$("#8").text(letter);
-	}else if(letter === "s"){
-		$("#9").text(letter);
-	}else if(letter === "w"){
-		$("#11").text(letter);
-	}else if(letter === "o"){
-		$("#12").text(letter);
-		$("#13").text(letter);
-	}else if(letter === "d"){
-		$("#14").text(letter);
-	}
-}
 
 function hint(){
 	switch(rounds) {
@@ -234,11 +208,15 @@ function hint(){
 function display(){
 	$("#winCount").text(wins);
 	$("#lossCount").text(losses);
+	// display current characters image
 	$("#actorPics").attr("src","assets/images/" + picsArr[rounds]);
+	// creates array of current name
 	var letters = Array.from(nameArr[rounds]);
+	// create index starting at one
 	let index = 1;
 	letters.forEach(function(letter){
 		
+		// if letter is the first letter of last name place a - before placeholder _
 		if(letter === letter.toUpperCase()){
 			$("#" + index).text(" - ");
 			// console.log("space uppercase index " + index);
@@ -246,68 +224,14 @@ function display(){
 			$("#" + index).text("_ ");
 			// console.log(letter + " uppercase index " + index);
 			index++;
+		// if not the first letter of last name place _ in indexed position
 		}else{
 			$("#" + index).text("_ ");
 			// console.log(letter + " not uppercase index " + index);
 			index++;
 		}
 	});
-	// if(rounds === 0){
-		// $("#1").text("_ ")
-		// $("#2").text("_ ")
-		// $("#3").text("_ ")
-		// $("#4").text("_ ")
-		// $("#5").text(" - ")
-		// $("#6").text("_ ")
-		// $("#7").text("_ ")
-		// $("#8").text("_ ")
-		// $("#9").text("_ ")
-		// $("#10").text("_ ")
 
-	// }else if(rounds === 1){
-	// 	$("#actorPics").attr("src","assets/images/elliot.jpg");
-	// 	$("#1").text("_ ")
-	// 	$("#2").text("_ ")
-	// 	$("#3").text("_ ")
-	// 	$("#4").text(" - ")
-	// 	$("#5").text("_ ")
-	// 	$("#6").text("_ ")
-	// 	$("#7").text("_ ")
-	// 	$("#8").text("_ ")
-	// 	$("#9").text("_ ")
-	// 	$("#10").text("_ ")
-	// }if(rounds === 2){
-	// 	$("#actorPics").attr("src","assets/images/connors.jpg");
-	// 	$("#1").text("_ ")
-	// 	$("#2").text("_ ")
-	// 	$("#3").text("_ ")
-	// 	$("#4").text("_ ")
-	// 	$("#5").text("_ ")
-	// 	$("#6").text(" - ")
-	// 	$("#7").text("_ ")
-	// 	$("#8").text("_ ")
-	// 	$("#9").text("_ ")
-	// 	$("#10").text("_ ")
-	// 	$("#11").text("_ ")
-	// 	$("#12").text("_ ")
-	// 	$("#13").text("_ ")
-	// }if(rounds === 3){
-	// 	$("#actorPics").attr("src","assets/images/eastwood.jpg");
-	// 	$("#1").text("_ ")
-	// 	$("#2").text("_ ")
-	// 	$("#3").text("_ ")
-	// 	$("#4").text("_ ")
-	// 	$("#5").text("_ ")
-	// 	$("#6").text(" - ")
-	// 	$("#7").text("_ ")
-	// 	$("#8").text("_ ")
-	// 	$("#9").text("_ ")
-	// 	$("#10").text("_ ")
-	// 	$("#11").text("_ ")
-	// 	$("#12").text("_ ")
-	// 	$("#13").text("_ ")
-	// 	$("#14").text("_ ")
-	// }
 }
 
 function key() {
