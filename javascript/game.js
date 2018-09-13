@@ -1,4 +1,5 @@
 var nameArr = ["johnWayne", "samElliot", "chuckConners", "clintEastwood"];
+var picsArr = ["wayne.jpg", "elliot.jpg", "connors.jpg", "eastwood.jpg"];
 
 var missedArr = [];
 var correctLetters = [];
@@ -15,8 +16,10 @@ function reset(){
 }
 
 function status(){
-	
+	console.log(correctLetters);
+	console.log("im here in status");
 	if(correctLetters.length === nameArr[rounds].length){
+		console.log("letter pushed " + correctLetters);
 		$("#info").text("You win!");
 		$("#playAgain").text("Next Round");
 		$("#playAgain").show();
@@ -76,11 +79,18 @@ function include(letter){
 	// $("#gameStats").show();
 	if(missedArr.includes(letter) || correctLetters.includes(letter)){
 		$("#info").text("Already guessed that one.");
-	}else if(nameArr[rounds].includes(letter)){
+	}else if(nameArr[rounds].toLowerCase().includes(letter)){
 	 	$("#info").text("Its there.");
 	 	roundName(rounds, letter);
-	 	if(nameArr[rounds].split(letter).length-1 >= 1){
-	 		for (var i = 0; i < nameArr[rounds].split(letter).length-1; i++) {
+	 	// correctLetters.push(letter);
+	 	console.log("soon to be pushed");
+	 	if(nameArr[rounds].toLowerCase().split(letter).length-1 >= 1){
+	 		console.log("im here about to be pushed");
+	 		// console.log(nameArr[rounds].split(letter));
+	 		// console.log(nameArr[rounds].split(letter).length-1);
+	 		// console.log("im here");
+	 		for (var i = 0; i < nameArr[rounds].toLowerCase().split(letter).length-1; i++) {
+	 			console.log("im here being pushed");
 	 			correctLetters.push(letter);
 	 		}
 	 	}
@@ -224,18 +234,25 @@ function hint(){
 function display(){
 	$("#winCount").text(wins);
 	$("#lossCount").text(losses);
-	var letters = Array.from(nameArr[rounds])
-	letters.forEach(function(letter,index){
-		index++;
-		if(letter == letter.toUpperCase()){
+	$("#actorPics").attr("src","assets/images/" + picsArr[rounds]);
+	var letters = Array.from(nameArr[rounds]);
+	let index = 1;
+	letters.forEach(function(letter){
+		
+		if(letter === letter.toUpperCase()){
 			$("#" + index).text(" - ");
-			index++
+			// console.log("space uppercase index " + index);
+			index++;
 			$("#" + index).text("_ ");
+			// console.log(letter + " uppercase index " + index);
+			index++;
 		}else{
-			$("#" + index).text("_ ")
+			$("#" + index).text("_ ");
+			// console.log(letter + " not uppercase index " + index);
+			index++;
 		}
 	});
-	if(rounds === 0){
+	// if(rounds === 0){
 		// $("#1").text("_ ")
 		// $("#2").text("_ ")
 		// $("#3").text("_ ")
@@ -247,50 +264,50 @@ function display(){
 		// $("#9").text("_ ")
 		// $("#10").text("_ ")
 
-	}else if(rounds === 1){
-		$("#actorPics").attr("src","assets/images/elliot.jpg");
-		$("#1").text("_ ")
-		$("#2").text("_ ")
-		$("#3").text("_ ")
-		$("#4").text(" - ")
-		$("#5").text("_ ")
-		$("#6").text("_ ")
-		$("#7").text("_ ")
-		$("#8").text("_ ")
-		$("#9").text("_ ")
-		$("#10").text("_ ")
-	}if(rounds === 2){
-		$("#actorPics").attr("src","assets/images/connors.jpg");
-		$("#1").text("_ ")
-		$("#2").text("_ ")
-		$("#3").text("_ ")
-		$("#4").text("_ ")
-		$("#5").text("_ ")
-		$("#6").text(" - ")
-		$("#7").text("_ ")
-		$("#8").text("_ ")
-		$("#9").text("_ ")
-		$("#10").text("_ ")
-		$("#11").text("_ ")
-		$("#12").text("_ ")
-		$("#13").text("_ ")
-	}if(rounds === 3){
-		$("#actorPics").attr("src","assets/images/eastwood.jpg");
-		$("#1").text("_ ")
-		$("#2").text("_ ")
-		$("#3").text("_ ")
-		$("#4").text("_ ")
-		$("#5").text("_ ")
-		$("#6").text(" - ")
-		$("#7").text("_ ")
-		$("#8").text("_ ")
-		$("#9").text("_ ")
-		$("#10").text("_ ")
-		$("#11").text("_ ")
-		$("#12").text("_ ")
-		$("#13").text("_ ")
-		$("#14").text("_ ")
-	}
+	// }else if(rounds === 1){
+	// 	$("#actorPics").attr("src","assets/images/elliot.jpg");
+	// 	$("#1").text("_ ")
+	// 	$("#2").text("_ ")
+	// 	$("#3").text("_ ")
+	// 	$("#4").text(" - ")
+	// 	$("#5").text("_ ")
+	// 	$("#6").text("_ ")
+	// 	$("#7").text("_ ")
+	// 	$("#8").text("_ ")
+	// 	$("#9").text("_ ")
+	// 	$("#10").text("_ ")
+	// }if(rounds === 2){
+	// 	$("#actorPics").attr("src","assets/images/connors.jpg");
+	// 	$("#1").text("_ ")
+	// 	$("#2").text("_ ")
+	// 	$("#3").text("_ ")
+	// 	$("#4").text("_ ")
+	// 	$("#5").text("_ ")
+	// 	$("#6").text(" - ")
+	// 	$("#7").text("_ ")
+	// 	$("#8").text("_ ")
+	// 	$("#9").text("_ ")
+	// 	$("#10").text("_ ")
+	// 	$("#11").text("_ ")
+	// 	$("#12").text("_ ")
+	// 	$("#13").text("_ ")
+	// }if(rounds === 3){
+	// 	$("#actorPics").attr("src","assets/images/eastwood.jpg");
+	// 	$("#1").text("_ ")
+	// 	$("#2").text("_ ")
+	// 	$("#3").text("_ ")
+	// 	$("#4").text("_ ")
+	// 	$("#5").text("_ ")
+	// 	$("#6").text(" - ")
+	// 	$("#7").text("_ ")
+	// 	$("#8").text("_ ")
+	// 	$("#9").text("_ ")
+	// 	$("#10").text("_ ")
+	// 	$("#11").text("_ ")
+	// 	$("#12").text("_ ")
+	// 	$("#13").text("_ ")
+	// 	$("#14").text("_ ")
+	// }
 }
 
 function key() {
