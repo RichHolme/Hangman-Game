@@ -1,5 +1,9 @@
 var nameArr = ["johnWayne", "samElliot", "chuckConners", "clintEastwood"];
 var picsArr = ["wayne.jpg", "elliot.jpg", "connors.jpg", "eastwood.jpg"];
+var hintArr = ["A native of Southern California commonly known as \"Duke\", this actor starred in the motion pictures True Grit (1969), El Darado (1966), and The Alamo (1960).",
+	"One of his first appearances was in Butch Cassidy and the Sundance Kid (1969). This actor had leading roles in the films Tombstone(1993), The Shadow Riders(1982), and Ghost Rider (2007).",
+	"Most recognized for his leading role in the series The Rifleman (1958-63). This actor was also a professional baseball and basketball player.",
+	"An iconic hollywood gunslinger and director, this actor rose to fame with his part in the tv series Rawhide (1959-63). Starring in The Good, the Bad and the ungly (1966) and The Outlaw Josey Wales (1976), this actor solidified his legendary status by directing and starring in more recent box office hits."]
 
 var missedArr = [];
 var correctLetters = [];
@@ -52,10 +56,6 @@ function winLoose(){
     if(wins == 4){
 		// $("#info").text("Good job! You won all 4 rounds!");
 		reset();
-
-		// $("#hint").empty();
-		// // $("span").empty();
-		// $("incorrect").empty();
 		$(".hides").hide();
 		$("#playAgain").hide();
 		$("#winner").show();
@@ -63,10 +63,6 @@ function winLoose(){
 		document.onkeyup = null;
 	}else if( total == 4){
 		reset();
-		// $("#info").text("Nice work. You won " + wins + " out of 4 rounds.");
-		// $("#hint").empty();
-		// $("#incorrect").empty();
-		// // $("span").empty();
 		$(".hides").hide();
 		$("#playAgain").hide();
 		$("#loser").show();
@@ -76,41 +72,26 @@ function winLoose(){
 }
 
 function include(letter){
-	// $("#gameStats").show();
+	// check if user has already guessed letter
 	if(missedArr.includes(letter) || correctLetters.includes(letter)){
 		$("#info").text("Already guessed that one.");
+	// check if letter is there
 	}else if(nameArr[rounds].toLowerCase().includes(letter)){
 	 	$("#info").text("Its there.");
-	 	roundName(rounds, letter);
-	 	// correctLetters.push(letter);
-	 	// console.log("soon to be pushed");
-	 	if(nameArr[rounds].toLowerCase().split(letter).length-1 >= 1){
-	 		// console.log("im here about to be pushed");
-	 		// console.log(nameArr[rounds].split(letter));
-	 		// console.log(nameArr[rounds].split(letter).length-1);
-	 		// console.log("im here");
-	 		for (var i = 0; i < nameArr[rounds].toLowerCase().split(letter).length-1; i++) {
-	 			// console.log("im here being pushed");
-	 			correctLetters.push(letter);
-	 		}
+	 	// call function to print letter to screen
+	 	names(letter);
+	 	// find how many times letter is in name and push to correct array
+	 	for (var i = 0; i < nameArr[rounds].toLowerCase().split(letter).length-1; i++) {
+	 		// console.log("im here being pushed");
+	 		correctLetters.push(letter);
 	 	}
+	// if letter isn't in name
 	}else{
 		$("#info").text("Its not there.");
 	 	$("#incorrect").append(letter + " ");
+	 	// push to missed array
 	 	missedArr.push(letter);
 	 	$("#missedL").show();
-	}
-}
-
-function roundName(rounds, letter){
-	if(rounds === 0){
-		names(letter);
-	}else if(rounds === 1){
-		names(letter);
-	}else if(rounds === 2){
-		names(letter);
-	}else if(rounds === 3){
-		names(letter);
 	}
 }
 
@@ -159,11 +140,18 @@ function names(userKey){
 		// when the userKey matches the loop key and it is in the first name array and it has not been printed more times that it occures in the array
 		// print to screen in correct span
 		if(userKey == letter && firstnameArr.includes(userKey) && firstArrHolder < fNumDuplicates){
-			// prints to screen
-			$("#" + index).text(userKey);
-			// increments hold count so we know how many time it had been printed
-			firstArrHolder++;
-			// console.log("adding letter to first name");
+			// checks if letter is first letter of first name
+			if(userKey == firstnameArr[0] && firstArrHolder < 1){
+				$("#" + index).text(userKey.toUpperCase());
+				firstArrHolder++;
+			}else{
+				// prints to screen
+				$("#" + index).text(userKey);
+				// increments hold count so we know how many time it had been printed
+				firstArrHolder++;
+				// console.log("adding letter to first name");
+			}
+			
 		}
 
 		// when the userKey matches the loop key and it is in the first name array and it has not been printed more times that it occures in the array
@@ -188,21 +176,8 @@ function names(userKey){
 
 
 function hint(){
-	switch(rounds) {
-    	case 0:
-        	$("#hint").text("A native of Southern California commonly known as \"Duke\", this actor starred in the motion pictures True Grit (1969), El Darado (1966), and The Alamo (1960).");
-       		break;
-    	case 1:
-        	$("#hint").text("One of his first appearances was in Butch Cassidy and the Sundance Kid (1969). This actor had leading roles in the films Tombstone(1993), The Shadow Riders(1982), and Ghost Rider (2007).");
-        	
-        	break;
-    	case 2:
-        	$("#hint").text("Most recognized for his leading role in the series The Rifleman (1958-63). This actor was also a professional baseball and basketball player.");
-        	break;
-    	case 3:
-    		$("#hint").text("An iconic hollywood gunslinger and director, this actor rose to fame with his part in the tv series Rawhide (1959-63). Starring in The Good, the Bad and the ungly (1966) and The Outlaw Josey Wales (1976), this actor solidified his legendary status by directing and starring in more recent box office hits.");
-    		break;
-    }
+
+ 	$("#hint").text(hintArr[rounds]);
 }
 
 function display(){
