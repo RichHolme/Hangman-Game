@@ -1,4 +1,4 @@
-var nameArr = ["johnwayne", "samelliot", "chuckconners", "clinteastwood"]
+var nameArr = ["johnWayne", "samElliot", "chuckConners", "clintEastwood"];
 
 var missedArr = [];
 var correctLetters = [];
@@ -124,7 +124,6 @@ function john(letter){
 	}else if(letter === "e"){
 		$("#10").text(letter);
 	}
-
 }
 
 function sam(letter){
@@ -225,17 +224,29 @@ function hint(){
 function display(){
 	$("#winCount").text(wins);
 	$("#lossCount").text(losses);
+	var letters = Array.from(nameArr[rounds])
+	letters.forEach(function(letter,index){
+		index++;
+		if(letter == letter.toUpperCase()){
+			$("#" + index).text(" - ");
+			index++
+			$("#" + index).text("_ ");
+		}else{
+			$("#" + index).text("_ ")
+		}
+	});
 	if(rounds === 0){
-		$("#1").text("_ ")
-		$("#2").text("_ ")
-		$("#3").text("_ ")
-		$("#4").text("_ ")
-		$("#5").text(" - ")
-		$("#6").text("_ ")
-		$("#7").text("_ ")
-		$("#8").text("_ ")
-		$("#9").text("_ ")
-		$("#10").text("_ ")
+		// $("#1").text("_ ")
+		// $("#2").text("_ ")
+		// $("#3").text("_ ")
+		// $("#4").text("_ ")
+		// $("#5").text(" - ")
+		// $("#6").text("_ ")
+		// $("#7").text("_ ")
+		// $("#8").text("_ ")
+		// $("#9").text("_ ")
+		// $("#10").text("_ ")
+
 	}else if(rounds === 1){
 		$("#actorPics").attr("src","assets/images/elliot.jpg");
 		$("#1").text("_ ")
