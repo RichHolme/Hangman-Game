@@ -1,11 +1,11 @@
 var nameArr = ["johnWayne", "samElliot", "chuckConners", "clintEastwood"];
 var picsArr = ["wayne.jpg", "elliot.jpg", "connors.jpg", "eastwood.jpg"];
 var hintArr = ["A native of Southern California commonly known as \"Duke\", this actor starred in the motion pictures True Grit (1969), El Darado (1966), and The Alamo (1960).",
-	"One of his first appearances was in Butch Cassidy and the Sundance Kid (1969). This actor had leading roles in the films Tombstone(1993), The Shadow Riders(1982), and Ghost Rider (2007).",
-	"Most recognized for his leading role in the series The Rifleman (1958-63). This actor was also a professional baseball and basketball player.",
-	"An iconic hollywood gunslinger and director, this actor rose to fame with his part in the tv series Rawhide (1959-63). Starring in The Good, the Bad and the ungly (1966) and The Outlaw Josey Wales (1976), this actor solidified his legendary status by directing and starring in more recent box office hits."]
+	"This actor made one of his first appearances in Butch Cassidy and the Sundance Kid (1969). He went on to hold leading roles in the films Tombstone(1993), The Shadow Riders(1982), and Ghost Rider (2007).",
+	"Most recognized for his leading role in the series The Rifleman (1958-63), this actor was also a professional baseball and basketball player.",
+	"An iconic hollywood gunslinger and director, this actor rose to fame with his part in the tv series Rawhide (1959-63). This actor was able to solidify his legendary status by directing and starring in more recent box office hits."]
 
-var missedArr = [];
+var missedArr = []
 var correctLetters = [];
 var rounds = 0;
 var wins = 0;
