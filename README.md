@@ -14,5 +14,4 @@ Rules:
 - Once you make it through all the questions the game will display your score! 
 
 Site: 
-
 https://richholme.github.io/Hangman-Game/
